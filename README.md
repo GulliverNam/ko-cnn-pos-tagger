@@ -25,6 +25,6 @@ data_v5_edit.txt를 이용하여 data, label, indexed_data, dictionary(data,labe
 
 
 
-###레퍼런스
+### 레퍼런스
 A General-Purpose Tagger with Convolutional Neural Networks(Xiang Yu and Agnieszka Falenska and Ngoc Thang Vu)
 http://www.aclweb.org/anthology/W17-4118
