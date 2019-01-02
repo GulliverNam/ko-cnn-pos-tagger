@@ -13,7 +13,7 @@
 ### 소스 코드 설명
 
 - Processing_Data.py
-data_v5_edit.txt를 이용하여 data, label, indexed_data, dictionary(data,label) 피클 파일을 생성합니다.
+data_v5_edit.txt를 이용하여 data, label, indexed_data, dictionary(data,label) pickle 파일을 생성합니다.
 레퍼런스를 보시면 크게 character 단위와 word 단위의 CNN 두개를 확인할 수 있는데 그 중 character 단위의 cnn을 구성하기 위해서 한글 데이터를 모두 자소단위로 분리하는 것을 확인하실 수 있습니다.
 
 - CNN_conv3d.py
