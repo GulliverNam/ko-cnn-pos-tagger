@@ -13,14 +13,17 @@
 ### 소스 코드 설명
 
 - Processing_Data.py
+
 data_v5_edit.txt를 이용하여 data, label, indexed_data, dictionary(data,label) pickle 파일을 생성합니다.
 레퍼런스를 보시면 크게 character 단위와 word 단위의 CNN 두개를 확인할 수 있는데 그 중 character 단위의 cnn을 구성하기 위해서 한글 데이터를 모두 자소단위로 분리하는 것을 확인하실 수 있습니다.
 
 - CNN_conv3d.py
+
 파일의 이름이 conv3d 인 이유는 character 단위의 CNN에서 input이 5차원으로 이루어져 있기 때문에 명명하였습니다.
 모델 구조는 레퍼런스를 따라서 나름대로 구성해보았습니다
 
 - Run_Model.py
+
 학습 된 모델로 training 데이터 외의 데이터를 가지고 실험해 볼 수 있도록 만들었습니다.
 
 
