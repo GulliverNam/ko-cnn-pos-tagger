@@ -86,10 +86,11 @@ logit = tf.add(tf.matmul(cnn_final, fully_W), fully_b)
 Y_pred = tf.nn.softmax(logit)
 #<tf.Tensor 'Softmax:0' shape=(?, 41) dtype=float32>
 
-loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels = Y, logits = logit))
+loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=Y, logits=logit))
 optimizer = tf.train.AdamOptimizer(0.01).minimize(loss)
-prediction = tf.equal(tf.argmax(Y_pred,1),tf.argmax(Y,1))
-accuracy = tf.reduce_mean(tf.cast(prediction,tf.float32))
+prediction = tf.equal(tf.argmax(Y_pred, 1), tf.argmax(Y, 1))
+accuracy = tf.reduce_mean(tf.cast(prediction, tf.float32))
+
 
 def cal_total_size(indexed_data):
     total_size = 0
@@ -97,7 +98,8 @@ def cal_total_size(indexed_data):
         total_size += len(sentence)
     return total_size
 
-def make_input (indexed_data, window_size = 7, max_length = 48, char_dim = 189, label_dim = 41):
+
+def make_input(indexed_data, window_size=7, max_length=48, char_dim=189, label_dim=41):
     for sentence in indexed_data:
         for w_index in range(len(sentence)):
             X = np.zeros([window_size*2 +1, max_length, char_dim], dtype=np.float32)
@@ -118,7 +120,9 @@ def make_input (indexed_data, window_size = 7, max_length = 48, char_dim = 189, 
             X = np.reshape(X, [1, window_size*2 +1, max_length, char_dim, 1])
             
             yield X, Y
-def make_batch_input (indexed_data, batch_size, mode): # mode: train or test
+
+
+def make_batch_input(indexed_data, batch_size, mode): # mode: train or test
     if mode == 'train': 
         indexed_data = indexed_data[:50000]
     else: # mode == 'test'
@@ -135,6 +139,7 @@ def make_batch_input (indexed_data, batch_size, mode): # mode: train or test
         X_input = np.concatenate(X_input, 0)
         Y_input = np.concatenate(Y_input, 0)
         yield X_input, Y_input
+
 
 def make_features(batch_size):
     features = [[[1,0,0,1,0],
